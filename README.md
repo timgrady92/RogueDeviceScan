@@ -1,1 +1,1 @@
-# pineapple
+# This is a list of live projects that I am working on. The purpose of this repository is to develop my scripting skills in PowerShell and Python.

@@ -1,1 +1,1 @@
-# This is a list of live projects that I am working on. The purpose of this repository is to develop my scripting skills in PowerShell and Python.
+# This is a repository of assorted projects I am working on. The purpose is to showcase hands-on experience related to cyber security skills. No rhyme or reason, if it's something I'm interested in it'll live in here.

@@ -1,4 +1,5 @@
 This is an exercise focused on identifying rogue devices on our network.
+
 Tools and commands used: Kali Linux, nmap (with various flags), grep (with various flags), command piping |
 
 Here is the scenario:

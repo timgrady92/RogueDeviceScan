@@ -12,7 +12,7 @@ grep --invert-match --file ~/Desktop/NetDefense/BaselineScan20231108.txt ~/Deskt
 
 ## BEGIN OUTPUT ##
 MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
-## END OUTPUT $$
+## END OUTPUT ##
 
 # Using -B flag to show 2 lines before the MAC address for added context
 

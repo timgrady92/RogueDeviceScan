@@ -1,0 +1,10 @@
+MAC Address: 78:67:0E:E6:EE:B7 - IP Address: 192.168.1.1   - Device Type: Router     - Owner: Tim Grady
+MAC Address: 6E:3F:10:0D:55:DD - IP Address: 192.168.1.152 - Device Type: Laptop     - Owner: Tim Grady
+MAC Address: 7C:25:DA:96:BC:D0 - IP Address: 192.168.1.158 - Device Type: Laptop     - Owner: Emily Grady
+MAC Address: BC:CE:25:F8:A3:B1 - IP Address: 192.168.1.163 - Device Type: Laptop     - Owner: Tim Grady
+MAC Address: E0:D8:C4:64:41:1A - IP Address: 192.168.1.164 - Device Type: Cell Phone - Owner: Tim Grady
+MAC Address: 9E:9C:F0:D0:5F:BA - IP Address: 192.168.1.168 - Device Type: Cell Phone - Owner: Emily Grady
+
+Six approved devices
+List updated on November 4, 2023
+

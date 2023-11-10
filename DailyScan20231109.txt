@@ -1,0 +1,23 @@
+# Nmap 7.94 scan initiated Thu Nov  9 20:40:52 2023 as: nmap -oN /home/slumpy/Desktop/NetDefense/DailyScan20231109.txt -sn 192.168.1.*
+Nmap scan report for CR1000A.mynetworksettings.com (192.168.1.1)
+Host is up (0.0057s latency).
+MAC Address: 78:67:0E:E6:EE:B7 (Wistron Neweb)
+Nmap scan report for Slumpy (192.168.1.152)
+Host is up (0.14s latency).
+MAC Address: 6E:3F:10:0D:55:DD (Unknown)
+Nmap scan report for pihole (192.168.1.155)
+Host is up (0.0055s latency).
+MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
+Nmap scan report for 192.168.1.158
+Host is up (0.45s latency).
+MAC Address: 7C:25:DA:96:BC:D0 (FN-Link Technology Limited)
+Nmap scan report for 192.168.1.163
+Host is up (0.14s latency).
+MAC Address: BC:CE:25:F8:A3:B1 (Nintendo)
+Nmap scan report for 192.168.1.164
+Host is up (0.14s latency).
+MAC Address: E0:D8:C4:64:41:1A (Unknown)
+Nmap scan report for 192.168.1.168
+Host is up (0.16s latency).
+MAC Address: 9E:9C:F0:D0:5F:BA (Unknown)
+# Nmap done at Thu Nov  9 20:40:57 2023 -- 256 IP addresses (7 hosts up) scanned in 5.09 seconds

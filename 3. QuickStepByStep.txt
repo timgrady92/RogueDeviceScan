@@ -1,0 +1,48 @@
+# Generation of baseline scan
+
+sudo nmap -oN ~/Desktop/NetDefense/Baseline20231108.txt -sn 192.168.1.*
+
+# Generation of daily scan the following day
+
+sudo nmap -oN ~/Desktop/NetDefense/DailyScan20231109.txt -sn 192.168.1.*
+
+# Using grep to identify differences between baseline and daily scan, using piped commands to filter for 'MAC Address'
+
+grep --invert-match --file ~/Desktop/NetDefense/BaselineScan20231108.txt ~/Desktop/NetDefense/DailyScan20231109.txt | grep 'MAC Address'
+
+## BEGIN OUTPUT ##
+MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
+## END OUTPUT $$
+
+# Using -C flag to show 1 line before and after the MAC address for added context
+
+grep -C1 DC:A6:32:41:93:C8 ~/Desktop/NetDefense/DailyScan20231109.txt
+
+## BEGIN OUTPUT ##
+Nmap scan report for pihole (192.168.1.155)
+Host is up (0.0055s latency).
+MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
+## END OUTPUT ##
+
+# Using nmap to identify open ports, running services, and OS information before passing information onto next tier of analysts
+
+nmap -sV 192.168.1.155
+
+## BEGIN OUTPUT ##
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-11-09 22:33 EST
+Nmap scan report for pihole (192.168.1.155)
+Host is up (0.027s latency).
+Not shown: 994 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 8.4p1 Debian 5+deb11u2 (protocol 2.0)
+53/tcp   open  domain      dnsmasq pi-hole-v2.89-9461807
+80/tcp   open  http        nginx
+139/tcp  open  netbios-ssn Samba smbd 4.6.2
+445/tcp  open  netbios-ssn Samba smbd 4.6.2
+5357/tcp open  http        BaseHTTPServer 0.6 (Python 3.9.2)
+MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.89 seconds
+## END OUTPUT ##

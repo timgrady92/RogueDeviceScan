@@ -52,7 +52,7 @@ MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
 
 # We must conduct a topical investigation into the device before passing it on to the next tier of analysts. We will use nmap to identify services that are running on this device.
 
-nmap -sV 192.168.1.155
+sudo nmap -sV 192.168.1.155
 
 ### The -sV flag will identify open ports and the services that are running on these ports. It also gives us insight as to what operating system the device is using.
 

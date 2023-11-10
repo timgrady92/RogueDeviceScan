@@ -1,9 +1,3 @@
-## 1. Task - Our security team has been tasked with conducting regular network scans to identify rogue devices.
-## 2. Considerations - All devices must be approved by our security team before they are allowed to join our network. The MAC address and owner will be logged in an Approved Device list.
-## 3. Rogue Device Defined - Any device that is connected to our network but is not notated on our Approved Device list.
-## 4. Standard Operating Procedure - Our team will run daily host-discovery scans of our network. Using the results from the scan, we will cross-reference our list of approved devices to ensure compliance. If we identify a rogue device, we will do a topical investigation of the device before passing it on to the next tier of analysts.
-## 5. Retention Policy - All scan results will be retained for thirty days. Abnormal scan results will be kept for six months after the incident report has come to a close.
-
 # We have created a baseline scan using the following command:
 
 sudo nmap -oN ~/Desktop/NetDefense/Baseline20231108.txt -sn 192.168.1.*

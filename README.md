@@ -70,3 +70,10 @@ As I learn Python, I will create a script that automates this process.
 ## Coming Soon:
 
 Geo-locating the rogue device using open-source wardriving applications
+\
+\
+Conducting basic digital forensics after physically securing the device
+   - Using a write-blocker to avoid altering contents of device
+   - Hashing the contents of the device to ensure integrity
+   - Following the order of volatility to collect as much data as possible
+     

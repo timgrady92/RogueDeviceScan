@@ -1,6 +1,14 @@
 This is NOT code, this is simply a showcasing of the steps I took to identify a rogue device on my network.
 \
 As I learn Python, I will create a script that automates this process.
+\
+File 1 is our list of approved devices as per the scenario.
+\
+File 2 is the baseline scan that was created using nmap.
+\
+File 3 is the daily scan that identifies an unapproved device.
+\
+File 4 shows each step as it was conducted in the command line.
 
 ## Scenario:
 

@@ -34,9 +34,9 @@ As I learn Python, I will create a script that automates this process.
 
 **Flags defined:**
 \
-nmap -oN = output a normalized file. The file type is defined by our user-defined file name.
+***nmap -oN*** = output a normalized file. The file type is defined by our user-defined file name.
 \
-nmap -sn = ping sweep. This scan will simply ping each possible IP address in our target range to identify hosts that respond.
+***nmap -sn*** = ping sweep. This scan will simply ping each possible IP address in our target range to identify hosts that respond.
 \
 Note: Running this nmap scan using sudo will also list the host's MAC address because we are connected to the scanned network.
 
@@ -48,23 +48,23 @@ Note: Running this nmap scan using sudo will also list the host's MAC address be
 
 **Flags defined:**
 \
-grep --invert-match = searches for lines that do NOT match. A standard grep search will find similarities and this flag inverts that method.
+***grep --invert-match*** = searches for lines that do NOT match. A standard grep search will find similarities and this flag inverts that method.
 \
-grep --file = allows us to compare two user-defined files. We define the file paths directly after this flag.
+***grep --file*** = allows us to compare two user-defined files. We define the file paths directly after this flag.
 
 ### Step 4: Using grep, find relevant data associated with the unexpected MAC address. Here we use -B2 because the host name and IP address appear two lines above the MAC address in the nmap output.
 > grep -B2 DC:A6:32:41:93:C8 ~/Desktop/NetDefense/DailyScan20231109.txt
 
 **Flags defined:**
 \
-grep -B2 = presents the user with the line that matches AS WELL AS the two lines prior to the matching line.
+***grep -B2*** = presents the user with the line that matches AS WELL AS the two lines prior to the matching line.
 
 ### Step 5: To conduct a topical assessment of the device, we will run an nmap scan on the unexpected device with the service version flag. This will present us with information that can help us identify the device's purpose.
 > sudo nmap -sV 192.168.1.155
 
 **Flags defined:**
 \
-nmap -sV = conducts a service version scan. This will present us with information about services that are running on open ports. 
+***nmap -sV*** = conducts a service version scan. This will present us with information about services that are running on open ports. 
 
 ## Coming Soon:
 

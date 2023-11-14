@@ -38,7 +38,8 @@ As I learn Python, I will create a script that automates this process.
 \
 ***nmap -sn*** = ping sweep. This scan will simply ping each possible IP address in our target range to identify hosts that respond.
 \
-Note: Running this nmap scan using sudo will also list the host's MAC address because we are connected to the scanned network.
+\
+***Note: Running this nmap scan using sudo will also list the host's MAC address because we are connected to the scanned network.***
 
 ### Step 2: At the beginning of each day, conduct a ping sweep scan to see what devices are connected to our network.
 > sudo nmap -oN ~/Desktop/NetDefense/DailyScan20231109.txt -sn 192.168.1.*

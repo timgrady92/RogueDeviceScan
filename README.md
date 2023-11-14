@@ -1,4 +1,4 @@
-This is NOT code, this is simply a showcasing of the steps I took to identify a rogue device on my network.
+**This is NOT code, this is simply a showcasing of the steps I took to identify a rogue device on my network.**
 \
 As I learn Python, I will create a script that automates this process.
 \

@@ -1,63 +1,29 @@
-# We have created a baseline scan using the following command:
-
+# creating our baseline scan
 sudo nmap -oN ~/Desktop/NetDefense/Baseline20231108.txt -sn 192.168.1.*
 
-### This scan has been cross-referenced with our Approved Device list and we know that it contains only approved devices.
-
-### sudo is necessary as nmap version 7.94 will only produce MAC addresses for devices on our network if we run it as root.
-
-### The -oN flag is used to create a file containing the scan results. -o is the prefix for all output flags and the appended N ensures that the filetype is "normalized" and is dictated by the file extension we provide.
- 
-### The -sn flag is used to disable port scanning. This flag is used for a simple ping scan that we can use for host discovery.
-
-### While we defined our target as 192.168.1.*, we could achieve the same result by using 192.168.1.0/24 or 192.168.1.1-255.
-
-# As per the Standard Operating Procedures, we will conduct new scans at the beginning of every day using the same script, simply adjusting file name to "DailyScanCURRENTDATE.txt"
-
+# running our daily scan beginning the day after our baseline has been created
 sudo nmap -oN ~/Desktop/NetDefense/DailyScan20231109.txt -sn 192.168.1.*
 
-# We will now use the grep command to identify any relevant differences between the baseline scan and the scan we ran on the morning of November 9, 2023 using the following command:
-
+# grep command to identify differences between baseline and daily scan. grep command after | pipe | filters for unexpected 'MAC Address' statements
 grep --invert-match --file ~/Desktop/NetDefense/BaselineScan20231108.txt ~/Desktop/NetDefense/DailyScan20231109.txt | grep 'MAC Address'
 
-### The --invert-match flag is used to identify non-matching strings. This is useful because we are looking for differences between the scans, not similarities. The -v flag performs the same function.
-
-### The --file flag is used to compare two files which we specify directly after the flag. The -f flag performs the same function.
-
-### The pipe | conjoins two commands. The command prior to the pipe searches for any text that is non-matching between our baseline scan and our daily scan. The command after the pipe searches through the differences identified by the first command and finds all mentions of MAC Address
-
-# This command presents us with the following output:
-
+### begin output ###
 MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
+### end output ###
 
-### Our daily scan has revealed a rogue device which our organization has defined simply as a device connected to our network that is not logged in our Approved Device list.
-
-# We want to identify the host name and IP address associated with this MAC address. Using grep, we will use the -B flag to show us several lines before the MAC Address to gather this information.
-
+# grep command to show us the MAC address line as well as two lines prior which contain the host-name and IP address
 grep -B2 DC:A6:32:41:93:C8 ~/Desktop/NetDefense/DailyScan20231109.txt
 
-### The user-defined number following -B indicates how many lines we will see before the MAC Address line. -B2 will show us the two lines that come before the MAC address.
-
-### To only see lines AFTER the MAC address, we can use the -A flag. -A2 will show us the two lines that are directly after the MAC address.
-
-### To see lines BEFORE and AFTER the MAC address, we can use the -C flag. -C1 will show us one line before and one line after the MAC address.
-
-# This command presents us with the following output.
-
+### begin output ###
 Nmap scan report for pihole (192.168.1.155)
 Host is up (0.0055s latency).
 MAC Address: DC:A6:32:41:93:C8 (Raspberry Pi Trading)
+### end output ###
 
-###We now have the host name and IP address associated with the rogue device.
-
-# We must conduct a topical investigation into the device before passing it on to the next tier of analysts. We will use nmap to identify services that are running on this device.
-
+# running nmap service version scan to investigate unapproved device
 sudo nmap -sV 192.168.1.155
 
-### The -sV flag will identify open ports and the services that are running on these ports. It also gives us insight as to what operating system the device is using.
-
-# This command presents us with the following output:
-
+### begin output ###
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-11-09 22:33 EST
 Nmap scan report for pihole (192.168.1.155)
 Host is up (0.027s latency).
@@ -74,9 +40,4 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 11.89 seconds
-
-### At a quick glance, we can identify that this device has several open ports that are using a variety of services.
-
-### Important ports here to note are port 22 and ports 139 and 445. Port 22 is SSH, used for remote connections, port 139 (netBIOS session service), used for resource sharing, and port 445 (used for SMB), used for file sharing.
-
-### We have also identified that this device is running on a Linux operating system.
+### end output ###
